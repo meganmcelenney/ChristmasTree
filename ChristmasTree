@@ -1,0 +1,48 @@
+/*
+Megan McElenney
+22 September 2017
+This program prints a christmas tree with random ornaments.
+
+Test Data:
+I tested program this with values of 3, 8, and _ and I got an appropriate, 
+expected christmas tree each time.
+ */
+package christmastree;
+
+import javax.swing.JOptionPane;
+
+public class ChristmasTree 
+{
+    public static void main(String[] args) 
+    {
+        int input = Integer.parseInt(JOptionPane.showInputDialog("What is the"
+                + " size of your christmas tree? In rows?"));
+        for(int starSpace = 0; starSpace<input; starSpace++)
+            System.out.print(" ");
+        System.out.println("*");
+        for(int row = input; row >=1; row--)
+        {
+            for(int spaces = 1; spaces <= row; spaces++)
+                System.out.print(" ");
+            for(int tree = input; tree >= row; tree--)
+            {
+                int rand = (int)(Math.random()*5 +1);
+                System.out.print(ornPicker(rand)+ " ");
+            }
+            System.out.println();
+
+        }
+        for(int trunkSpace = 0; trunkSpace<input-1; trunkSpace++)
+            System.out.print(" ");
+        System.out.println("| |");
+    }
+    public static char ornPicker(int xmas)
+    {
+       if(xmas == 1)
+           return '@';
+       if(xmas == 2)
+           return '$';
+       return '^';
+    }
+    
+}
